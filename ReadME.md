@@ -1,8 +1,13 @@
-ONLINE NOTEPAD
+ONLINE NOTEPAD (PHP)
+=============
 
 
-Apache + PHP 5.2.12 + MySQL server version 5.1.41 
+#### Development environment
+Apache + PHP 5.2.12 + MySQL server version 5.1.41
 
+#### Admin default password
 Default password : onlinenotepad
+
+***
 
 © MUNSIWOO. All Rights Reserved
