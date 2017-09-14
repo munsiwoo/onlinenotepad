@@ -1,16 +1,16 @@
 <?php
-session_start();
 error_reporting(0);
+session_start();
 include 'config.php';
 
 if(isset($_SESSION['login'])){
   exit("<script>location.href='./home.php'</script>");
 }
 if(isset($_POST['password'])){
-  $password = mysqli_fetch_array(mysqli_query($conn, "SELECT password FROM `user` WHERE 1"));
+  $password = mysqli_fetch_assoc(mysqli_query($conn, "SELECT * FROM `user` WHERE 1"));
   
-  if(hash('sha256', $_POST['password']."munsiwoo") === $password[0]){
-    $_SESSION['login'] = true;
+  if(hash('sha256', $_POST['password']."munsiwoo") === $password['password']){
+    $_SESSION['login'] = 'login_ok';
     exit("<script>location.href='./home.php'</script>");
   }
   else {
