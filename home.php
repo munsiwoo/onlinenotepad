@@ -40,7 +40,7 @@
                         $query = mysqli_query($conn, "SELECT * FROM `data` ORDER BY idx DESC");
                         $j = mysqli_num_rows($query);
 
-        		        while($row = mysqli_fetch_array($query)){
+        		        while($row = mysqli_fetch_assoc($query)){
                             $i = ($i == 4) ? 0 : $i + 1;
         		        	echo "<div class='col-md-3'>
         		        	<a href='./notepad.php?type=edit&idx=".$row['idx']."'>
