@@ -1,6 +1,6 @@
 <?php
-    session_start();
     error_reporting(0);
+    session_start();
     include 'config.php';
 
     if(!isset($_SESSION['login'])){
@@ -11,13 +11,15 @@
         if(strlen(trim($_POST['npass'])) < 4 || strlen(trim($_POST['rnpass'])) < 4){
             exit("<script>alert('pw is too short');location.href='./password.php'</script>");
         }
+        
         $cpass = hash('sha256', $_POST['cpass']."munsiwoo");
         $npass = hash('sha256', $_POST['npass']."munsiwoo");
         $rnpass = hash('sha256', $_POST['rnpass']."munsiwoo");
-        $password = mysqli_fetch_array(mysqli_query($conn, "SELECT password FROM `user` WHERE 1"));
+        $password = mysqli_fetch_row(mysqli_query($conn, "SELECT password FROM `user` WHERE 1"));
+        
         if($password[0] === $cpass && $npass === $rnpass){
             $query = "UPDATE `user` SET password='$npass' WHERE password='$cpass'";
-            mysqli_query($conn, $query);
+            mysqli_query($conn, $query) or die('change error');
             exit("<script>alert('success');location.href='./home.php'</script>");
         }
         else {
