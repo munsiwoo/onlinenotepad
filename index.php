@@ -14,8 +14,9 @@ if(isset($_POST['password'])){
     exit("<script>location.href='./home.php'</script>");
   }
   else {
-    $fp = fopen("access_log.txt", "a+");
-    fwrite($fp, "IP[".$_SERVER['REMOTE_ADDR']."], WRONG_PASSWORD[".$_POST['password']."]\r\n");
+    $fp = fopen('access_log.txt', 'a+');
+    $log = date("Y-m-d H:i:s").' ('.$_SERVER['REMOTE_ADDR'].'), access_password : '.$_POST['password']."\r\n";
+    fwrite($fp, $log);
     fclose($fp);
   }
 }
