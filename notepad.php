@@ -8,14 +8,13 @@
   }
 
   if(isset($_GET['type'])){
-    if($_GET['type'] === "new"){ // new contents
-      $fdate = "new file";
-      $ldate = "new file";
+    if($_GET['type'] === 'new'){ // new contents
+      $fdate = $ldate = 'new file';
     }
-    else if(isset($_GET['idx']) && $_GET['type'] === "edit"){ // contents edit
+    else if(isset($_GET['idx']) && $_GET['type'] === 'edit'){ // contents edit
       $idx = (int)$_GET['idx'];
-      $query = "SELECT * FROM `data` WHERE idx=".$idx;
-      $row = mysqli_fetch_array(mysqli_query($conn, $query));
+      $query = "SELECT * FROM `data` WHERE idx='".$idx."'";
+      $row = mysqli_fetch_assoc(mysqli_query($conn, $query));
 
       if($row){
         $fdate = $row['fdate'];
