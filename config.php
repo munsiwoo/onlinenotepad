@@ -1,8 +1,10 @@
 <?php
-define("DB_HOST", "_yourhost_");
-define("DB_USER", "_yourid_");
-define("DB_PASSWORD", "_yourpw_");
-define("DB_NAME", "_yourdbname_");
+error_reporting(0);
+
+define("DB_HOST", "**secret**");
+define("DB_USER", "**secret**");
+define("DB_PASSWORD", "**secret**");
+define("DB_NAME", "**secret**");
 
 $conn = mysqli_connect(DB_HOST, DB_USER, DB_PASSWORD, DB_NAME);
 ?>
