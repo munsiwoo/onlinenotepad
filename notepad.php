@@ -1,6 +1,6 @@
 <?php
-  session_start();
   error_reporting(0);
+  session_start();
   include 'config.php';
 
   if(!isset($_SESSION['login'])){
