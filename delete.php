@@ -1,6 +1,6 @@
 <?php
-    session_start();
     error_reporting(0);
+    session_start();
     include 'config.php';
 
     if(!isset($_SESSION['login'])){
@@ -8,9 +8,9 @@
     }
 
     if(isset($_GET['idx'])){
-        $query = "DELETE FROM `data` WHERE idx=".(int)$_GET['idx'];
-    	mysqli_query($conn, $query);
-    	exit("<script>location.href='./home.php'</script>");
+        $query = "DELETE FROM `data` WHERE idx='".(int)$_GET['idx']."'";
+    	mysqli_query($conn, $query) or die('delete error');
+    	exit("<script>alert('delete ok');location.href='./home.php'</script>");
     }
     exit("<script>location.href='./home.php'</script>");
 ?>
