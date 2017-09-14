@@ -1,6 +1,6 @@
 <?php
-    session_start();
     error_reporting(0);
+    session_start();
     include 'config.php';
 
     if(!isset($_SESSION['login'])){
@@ -36,12 +36,12 @@
                     <hr>
                     <div class="row">
                     <?php
-                        $i=0;
+                        $i = 0;
                         $query = mysqli_query($conn, "SELECT * FROM `data` ORDER BY idx DESC");
                         $j = mysqli_num_rows($query);
 
         		        while($row = mysqli_fetch_array($query)){
-                            $i = ($i === 4) ? 0 : $i+1;
+                            $i = ($i == 4) ? 0 : $i + 1;
         		        	echo "<div class='col-md-3'>
         		        	<a href='./notepad.php?type=edit&idx=".$row['idx']."'>
         		        	<img src='./assets/notepad.bmp' class='img-responsive'></a>
